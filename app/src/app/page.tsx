@@ -72,9 +72,10 @@ export default async function HomePage() {
       </div>
 
       {/* Footer Section */}
-      <footer className="mt-12 text-sm text-gray-400 text-center">
-        Your journey to financial freedom starts here.
-      </footer>
+      {/* eslint-disable-next-line react/no-unescaped-entities */}
+      <footer className="mt-12 text-sm text-gray-400 text-center">
+        Your journey to financial freedom starts here.
+      </footer>
     </main>
   );
 }
