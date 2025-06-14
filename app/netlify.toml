@@ -1,0 +1,12 @@
+# ascendioglobal-nextjs-site/netlify.toml
+
+# Main build settings for the Next.js project located in the 'app' directory
+[build]
+  base = "app/"         # Tells Netlify to change into the 'app/' directory before running commands
+  command = "npm run build" # The build command to execute within the base directory
+  publish = "app/.next"   # The directory Netlify should serve after a successful build (relative to repo root)
+
+# Required for Netlify's Next.js Build Plugin to correctly handle App Router features
+# This plugin detects and deploys necessary serverless functions.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
