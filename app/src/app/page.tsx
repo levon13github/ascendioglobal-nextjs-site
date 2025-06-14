@@ -1,12 +1,9 @@
-import { getAllPosts } from '../../lib/api'; // Adjust path if your structure differs based on VS Code suggestions
-import Image from 'next/image'; // Importing Image component for potential future use or if default template includes it
-import Link from 'next/link'; // Importing Link component for internal navigation
+import { getAllPosts, PostNode } from '../../lib/api'; // <-- UPDATED IMPORT: Also import PostNode
+import Image from 'next/image';
+import Link from 'next/link';
 
-// This is a Next.js Server Component, capable of async operations
-// It will fetch data directly on the server during build time (for SSG) or on request (for SSR)
 export default async function HomePage() {
-  // Fetch posts from your Headless WordPress backend
-  const posts = await getAllPosts();
+  const posts = await getAllPosts(); // posts is now correctly inferred as PostNode[]
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 sm:p-24 bg-gray-50 text-gray-800">
@@ -47,15 +44,14 @@ export default async function HomePage() {
         </h2>
         {posts && posts.length > 0 ? (
           <div className="grid gap-6">
-            {posts.map((post: any) => ( // Using 'any' for simplicity, we can create types later
+            {/* Now, TypeScript knows 'posts' is an array of PostNode, so just type 'post' as PostNode */}
+            {posts.map((post: PostNode) => ( // <-- SIMPLIFIED AND CORRECTED TYPE HERE
               <article key={post.slug} className="border-b pb-4 last:border-b-0">
                 <h3 className="text-2xl font-semibold text-indigo-600 hover:text-indigo-800 transition duration-300 ease-in-out">
-                  {/* Using Next.js Link component for client-side navigation */}
                   <Link href={`/${post.uri}`}>
                     {post.title}
                   </Link>
                 </h3>
-                {/* Render HTML excerpt cautiously; ensure WordPress content is sanitized */}
                 <div
                   className="text-gray-600 mt-2 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: post.excerpt }}
@@ -77,7 +73,7 @@ export default async function HomePage() {
 
       {/* Footer Section */}
       <footer className="mt-12 text-sm text-gray-400 text-center">
-        Your journey to financial freedom starts here.
+        Your journey to financial freedom starts here.&apos;
       </footer>
     </main>
   );
