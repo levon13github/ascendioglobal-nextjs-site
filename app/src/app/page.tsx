@@ -61,7 +61,7 @@ export default async function HomePage() {
           </div>
         ) : (
           <p className="text-lg text-gray-500 text-center">
-            No blog posts found in WordPress yet. Let's create some content!
+            No blog posts found in WordPress yet. Let&apos;s create some content!
           </p>
         )}
       </section>
@@ -72,11 +72,11 @@ export default async function HomePage() {
       </div>
 
       {/* Footer Section */}
-      {/* eslint-disable react/no-unescaped-entities */}
+      
       <footer className="mt-12 text-sm text-gray-400 text-center">
         Your journey to financial freedom starts here.
       </footer>
-      {/* eslint-enable react/no-unescaped-entities */}
+     
     </main>
   );
 }
