@@ -73,7 +73,7 @@ export default async function HomePage() {
 
       {/* Footer Section */}
       <footer className="mt-12 text-sm text-gray-400 text-center">
-        Your journey to financial freedom starts here.&apos;
+        Your journey to financial freedom starts here.
       </footer>
     </main>
   );
