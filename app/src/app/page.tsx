@@ -76,7 +76,7 @@ export default async function HomePage() {
       <footer className="mt-12 text-sm text-gray-400 text-center">
         Your journey to financial freedom starts here.
       </footer>
-     
+        
     </main>
   );
 }
